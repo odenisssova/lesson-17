@@ -19,16 +19,14 @@ test('TL-17-3 signIn button disabled when incorrect data inserted', async ({}) =
 test('TL-17-4 error message displayed when incorrect credentials used', async ({}) => {
   await authPage.usernameField.fill(faker.internet.username())
   await authPage.passwordField.fill(faker.internet.password())
-  await authPage.signInButton.click();
-  await expect(authPage.page.getByText('Incorrect credentials')).toBeVisible();
-
+  await authPage.signInButton.click()
+  await expect(authPage.page.getByText('Incorrect credentials')).toBeVisible()
 })
 
 test('TL-17-5 login with correct credentials and verify order creation page', async ({}) => {
   const orderCreationPage = await authPage.signIn(USERNAME, PASSWORD)
   await expect(orderCreationPage.statusButton).toBeVisible()
   await orderCreationPage.checkInnerComponentsVisible()
-
 })
 
 test('TL-17-6 login and create order', async ({}) => {

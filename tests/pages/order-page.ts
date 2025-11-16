@@ -32,6 +32,6 @@ export class OrderPage {
   }
 
   async checkCreationPopupVisible(visible = true): Promise<void> {
-    await expect(this.successfulCreationPopup).toBeVisible({visible})
+    await expect(this.successfulCreationPopup).toBeVisible({ visible })
   }
 }
